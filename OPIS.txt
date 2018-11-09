@@ -1,4 +1,8 @@
-﻿pracaDomowaMouse - nie działą usuwanie i przesuwanie kadracików - prawdopodobny problem, że nie identyfikuje BOTTON3 jako prawy przycisk myszy.
+﻿keyBoardExcercise - to co przy Słowniku, okienko o wygranej, żeby pojawiło się w ramce/panelu nie na środku 
+ekranu.
+
+
+pracaDomowaMouse - nie działą usuwanie i przesuwanie kadracików - prawdopodobny problem, że nie identyfikuje BOTTON3 jako prawy przycisk myszy.
 
 
 paczka TEXT:
