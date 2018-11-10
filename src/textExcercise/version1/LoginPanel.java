@@ -44,6 +44,18 @@ public class LoginPanel extends JPanel implements ActionListener{
 
         GridBagLayout gridBag = new GridBagLayout();
         setLayout(gridBag);
+/*
+GridBagLayout is one of the most flexible — and complex — layout managers the Java platform provides.
+A GridBagLayout places components in a grid of rows and columns, allowing specified components to span multiple rows or columns.
+Not all rows necessarily have the same height. Similarly, not all columns necessarily have the same width. Essentially, GridBagLayout
+places components in rectangles (cells) in a grid, and then uses the components' preferred sizes to determine how big the cells should be.
+
+The GridBagConstraints class specifies constraints for components that are laid out using the GridBagLayout class.
+
+BorderLayout lays out a container, arranging and resizing its components to fit in five regions: north, south, east, west, and center.
+Each region may contain no more than one component, and is identified by a corresponding constant: NORTH, SOUTH, EAST, WEST, and CENTER.
+When adding a component to a container with a border layout, use one of these five constants.
+ */
         GridBagConstraints constraints = new GridBagConstraints();
         gridBag.setConstraints(this, constraints);
         constraints.fill = GridBagConstraints.CENTER;
@@ -81,21 +93,21 @@ public class LoginPanel extends JPanel implements ActionListener{
         this.frame=frame;
     }
 
-    /*
-     @return wprowadzona nazwa użytkownika
-     */
+ /*
+@return input user name
+*/
     public String getName() {
         return nameField.getText();
     }
 
-    /*
-     @return wprowadzone przez użytkownika hasło
-     */
+/*
+@return input user password
+*/
 
     public String getPassword() {
-        String password = "";
 
         char[] pass = passField.getPassword();
+        String password = "";
         for(int i=0; i<pass.length; i++) {
             password += pass[i];
         }
@@ -105,14 +117,8 @@ public class LoginPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
 
-        String name = nameField.getText();
-
-        // conversion of character table to String
-        char[] pass = passField.getPassword();
-        String password = "";
-        for(int i=0; i<pass.length; i++) {
-            password += pass[i];
-        }
+        String name = this.getName();
+        String  password = this.getPassword();
 
         if (UserValidator.authenticate(name, password)) {
             SwingUtilities.invokeLater(new Runnable() {
@@ -125,89 +131,16 @@ public class LoginPanel extends JPanel implements ActionListener{
                     // we add html panel and refresh view
                     frame.add(htmlPanel);
                     frame.validate();
+/*
+Validates this container and all of its subcomponents.
+
+Validating a container means laying out its subcomponents. Layout-related changes, such as setting the bounds of a component, or adding a
+component to the container, invalidate the container automatically. Therefore, to restore the validity of the hierarchy, the validate() method
+should be invoked on the top-most invalid container of the hierarchy.
+ */
                 }
             });
         }
     }
-
 }
 
-
-// MÓJ PANEL
-// Działający PANEL
-
-
-/*
-public class LoginPanel extends JPanel {
-    private JTextField nameField; //pole na nazwę
-    private JPasswordField passField; //pole na hasło
-    private JButton loginButton; //przycisk logowania
-    private LoginListener listener; //słuchacz przycisku
-
-
-     //@return wprowadzona nazwa użytkownika
-
-    public String getName() {
-        return nameField.getText();
-    }
-
-
-     // @return wprowadzone przez użytkownika hasło
-
-    public String getPassword() {
-        String password = "";
-        char[] pass = passField.getPassword();
-        for(int i=0; i<pass.length; i++) {
-            password += pass[i];
-        }
-        return password;
-    }
-
-    public LoginPanel(LoginListener listener) { //
-        super();
-        // ustawiamy layout
-        GridBagLayout gridBag = new GridBagLayout();
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.fill = GridBagConstraints.CENTER;
-        gridBag.setConstraints(this, constraints);
-        setLayout(gridBag);
-        // tworzymy komponenty logowania
-        this.listener = listener;
-        this.listener.setPanel(this);
-        createComponents();
-    }
-
-
-     //Metoda, która tworzy etykiety i pola do wprowadzania danych.
-
-    private void createComponents() {
-        JLabel name = new JLabel("Name: ");
-        JLabel password = new JLabel("Password: ");
-        nameField = new JTextField();
-        passField = new JPasswordField();
-
-        //pomocniczy panel do wprowadzania danych
-        JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(2, 2));
-        inputPanel.add(name);
-        inputPanel.add(nameField);
-        inputPanel.add(password);
-        inputPanel.add(passField);
-        //tworzymy przycisk logowania
-        loginButton = new JButton("Zaloguj");
-        loginButton.addActionListener(listener);
-
-        //pomocniczy panel do wyśrodkowania elementów
-        JPanel parentPanel = new JPanel();
-        parentPanel.setLayout(new BorderLayout());
-        parentPanel.add(inputPanel, BorderLayout.CENTER);
-        parentPanel.add(loginButton, BorderLayout.SOUTH);
-
-        // dodajemy do głównego panelu
-        this.add(parentPanel);
-    }
-
-
-}
-
-*/

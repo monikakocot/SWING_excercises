@@ -50,7 +50,7 @@ public class HTMLPanel extends JPanel {
         editorPane.setContentType("text/html");
         //preview button
         JButton actionButton = new JButton("Preview");
-        actionButton.addActionListener(new ConvertListener()); // preview will be generated after click action button 'preview'
+        //actionButton.addActionListener(new ConvertListener()); // preview will be generated after click action button 'preview'
         // in this case we can delete addKeyListener
 
         //help panel for organise elements

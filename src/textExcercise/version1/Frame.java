@@ -14,7 +14,7 @@ public class Frame extends JFrame {
 
         setPreferredSize(new Dimension(600, 400));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
+        pack(); //adjust size of the frame to content
         setVisible(true);
     }
 }
