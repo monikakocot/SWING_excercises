@@ -1,7 +1,5 @@
 package mixExcercise;
 
-import mouseExcercise.Frame;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -105,8 +103,9 @@ When adding a component to a container with a border layout, use one of these fi
                 @Override
                 public void run() {
                     // panel with html editor
+
                     JPanel htmlPanel = new HTMLPanel();
-                    // we delete login panel
+                    // we delete panels
                     frame.getContentPane().removeAll();
 
                     frame.add(htmlPanel);
@@ -116,6 +115,14 @@ When adding a component to a container with a border layout, use one of these fi
                     frame.revalidate();
                     frame.pack();
                     frame.repaint();
+
+                    new KeyFrame();
+                }
+            });
+        }
+    }
+}
+
 /*
 Validates this container and all of its subcomponents.
 
@@ -123,9 +130,5 @@ Validating a container means laying out its subcomponents. Layout-related change
 component to the container, invalidate the container automatically. Therefore, to restore the validity of the hierarchy, the validate() method
 should be invoked on the top-most invalid container of the hierarchy.
  */
-                }
-            });
-        }
-    }
-}
+
 
