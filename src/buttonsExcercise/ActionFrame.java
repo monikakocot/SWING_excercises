@@ -5,7 +5,7 @@ import javax.swing.*;
 public class ActionFrame extends JFrame {
 
     public ActionFrame() {
-        super("Test akcji");
+        super("Action Test");
 
         JPanel buttonPanel = new ButtonPanel();
         add(buttonPanel);

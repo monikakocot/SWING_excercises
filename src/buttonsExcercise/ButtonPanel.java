@@ -24,7 +24,7 @@ public class ButtonPanel extends JPanel{
     private JButton redButton;
 
     public ButtonPanel() {
-        greenButton = new FirstButton(this);
+        greenButton = new FirstButton(this); // becouse has action connecter with button Panel
         blueButton = new SecondButton();
         redButton = new ThirdButton();
 
